@@ -1,30 +1,63 @@
 # pong in AVR assembly
 
+Programmer: Ducks
 
+Writer: Ducks
 
-## TLDR: 
+Playtester: Ducks
 
-Don't bother programming in ASM unless you need to do something very specific that's harder or worse in C++.  
+Some help/pointers from: the wokwi discord, and Julian
 
+'Most everything else: Ducks
 
+You can run this on [Wokwi](https://wokwi.com/arduino/projects/290171034574782984).
 
-## What I actually intended by doing this:  
+## Abstract: 
 
-This was a foray into the dark art of AVR ASM, because of the AVR hacking and reverse engineering course on hackaday by Uri Shaked, using wokwi.com for simulation.  
-Well, I really did this for the certificate.  
+I did this whole thing because of the [AVR: Architecture, Assembly & Reverse Engineering](https://hackaday.io/course/176685-avr-architecture-assembly-reverse-engineering) course on Hackaday. 'Twas found that rendering can be a royal pain in the backside.
 
+There was also a fair bit of confusion to be found in sending the rendered image to the display. Pong can also be rather complex, while being simple in other ways.
 
+In what way is this significant? I have no idea.
 
-## How on earth did I manage it?  
+## Introduction: 
 
-Well, thanks for asking, kind stranger!  
+This report is about the writing of a pong game in C++, and the porting of it to AVR ASM.
 
-First, I wrote it all in C++. Which was a good thing, seeing as it was very hard, confusing, and infuriating. No way I could have done this in AVR right off the bat.  
+## Materials used:
 
-For example, `imgBuffer[((pen[0] >> 3) + (pen[1] << 1))] |= (0x80 >> (pen[0] & 0x07));` becomes 21 lines of ASM.  
+Hardware: 
 
-Writing the image data out to the display was also quite a pain. Fortunately AVR has hardware spi! Bit-banging that would have been *painful*.  
+- a laptop
+- a mouse
+- an external display
+- even an Oculus Quest 2 with ImmersedVR, once or twice, when I needed 3 displays
 
-The image data is stored in a single 16-byte array. Easy for C++, but not for ASM. (pointers can be such a nuisance!) The bytes are shifted out one by one,  
-with the row being incremented after every second byte. For writing to the image buffer, well, take a gander: `imgBuffer[((pen[0] >> 3) + (pen[1] << 1))] |= (0x80 >> (pen[0] & 0x07));` . pen[0] is the x position, pen[1] is y.  
+Software/resources:
 
+- Google Chrome
+- Wokwi.com
+-  (put instruction set manual here) 
+- ImmersedVR, when I used my Quest
+- The atmega328p datasheet
+
+## Procedure:
+
+(fyi my memory is a *little* fuzzy about the exact order of things, so get out your salt)
+
+First I got the display write function working, the job of which was to output the contents of the image buffer to the display. (past tense because I rewrite it later on)
+
+Then, I tried to get the render function working. Due to a lot of errors and confusion, I rewrote the display write function to be simpler, though that wasn't the problem.
+
+Once I got it to render pixels, I started on making it render the full gamestate. much confusion later, I had two paddles and a ball on the display.
+
+ After that, I got player inputs working. Relatively simple, but there was still a fair bit of logic to keep the paddle within the screen.
+
+I tried to think of a way to make a basic AI to control the computer paddle, but then I just rolled it together with the render function.
+
+Then I started work on the ball. In the end, just a pair of booleans were used to store the ball's current trajectory. Rather a bit of logic was used to do the physics,  
+though it is pretty simple. Just a bunch of if statements using the current x/y position, and sometimes the player paddle position.
+
+It also has a form of score system, but I can't remember exactly how it works.
+
+With all the necessary features in all their separate functions, I did some fairly simple code for the main loop, which is mostly function calls.
