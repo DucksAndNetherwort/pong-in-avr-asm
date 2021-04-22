@@ -18,7 +18,7 @@ I did this whole thing because of the [AVR: Architecture, Assembly & Reverse Eng
 
 There was also a fair bit of confusion to be found in sending the rendered image to the display. Pong can also be rather complex, while being simple in other ways.
 
-In what way is this significant? I have no idea.
+This (and the course that resulted in it) was rather interesting, and I picked up rather a few helpful tricks. Sometimes ASM is the best way to do something!
 
 ## Introduction: 
 
@@ -43,7 +43,7 @@ Software/resources:
 
 ## Procedure:
 
-(fyi my memory is a *little* fuzzy about the exact order of things, so get out your salt)
+(Note: none of this was written as I did it, everything is recalled from memory)
 
 First I got the display write function working, the job of which was to output the contents of the image buffer to the display. (past tense because I rewrite it later on)
 
