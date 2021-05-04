@@ -1,4 +1,4 @@
-# pong in AVR assembly
+# Pong in AVR assembly
 
 Programmer: Ducks
 
@@ -36,8 +36,8 @@ Hardware:
 Software/resources:
 
 - Google Chrome
-- Wokwi.com
--  (put instruction set manual here) 
+- Wokwi
+-  an AVR instruction set manual: http://ww1.microchip.com/downloads/en/DeviceDoc/AVR-Instruction-Set-Manual-DS40002198A.pdf
 - ImmersedVR, when I used my Quest
 - The atmega328p datasheet
 
@@ -61,3 +61,29 @@ though it is pretty simple. Just a bunch of if statements using the current x/y 
 It also has a form of score system, but I can't remember exactly how it works.
 
 With all the necessary features in all their separate functions, I did some fairly simple code for the main loop, which is mostly function calls.
+
+Everything was then converted to AVR ASM, which was a gigantic pain in the backside. And a headache.
+
+## Results:
+
+Well, the main results of this were a playable game of pong, and an understanding of ASM.
+
+I also gained an understanding of the AVR architecture, which should help in understanding other architectures as well.
+
+## Conclusion:
+
+Great for learning AVR ASM, and hugely interesting. Just don't do it looking for a calming activity.
+
+Pong also has some complex logic, especially with the tweaks I used.
+
+## References:
+
+http://ww1.microchip.com/downloads/en/DeviceDoc/AVR-Instruction-Set-Manual-DS40002198A.pdf The instruction set manual
+
+https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf atmega328p datasheet
+
+https://www.wokwi.com wokwi simulator
+
+https://immersed.com/ immersed
+
+https://www.geeksforgeeks.org/operators-c-c/ C++ operator guide
