@@ -18,7 +18,7 @@ I did this whole thing because of the [AVR: Architecture, Assembly & Reverse Eng
 
 There was also a fair bit of confusion to be found in sending the rendered image to the display. Pong can also be rather complex, while being simple in other ways.
 
-The goal of the course was to learn AVR assembly by implementing Pong in pure assembly
+The goal of the course was to learn AVR assembly by implementing Pong in pure assembly.
 
 ## Introduction 
 
