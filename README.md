@@ -14,7 +14,7 @@ You can run this on [Wokwi](https://wokwi.com/arduino/projects/29017103457478298
 
 ## Abstract: 
 
-I did this whole thing because of the [AVR: Architecture, Assembly & Reverse Engineering](https://hackaday.io/course/176685-avr-architecture-assembly-reverse-engineering) course on Hackaday. 'Twas found that rendering can be a royal pain in the backside.
+I did this whole thing because of the [AVR: Architecture, Assembly & Reverse Engineering](https://hackaday.io/course/176685-avr-architecture-assembly-reverse-engineering) course on Hackaday.
 
 There was also a fair bit of confusion to be found in sending the rendered image to the display. Pong can also be rather complex, while being simple in other ways.
 
@@ -30,22 +30,19 @@ Hardware:
 
 - a laptop
 - a mouse
-- an external display
-- even an Oculus Quest 2 with ImmersedVR, once or twice, when I needed 3 displays
+- an external display, sometimes using an Oculus Quest 2 running ImmersedVR when 3 displays were neccecary
 
 Software/resources:
 
-- Google Chrome
-- Wokwi
+- Latest version of Google Chrome
+- Wokwi.com
 -  an AVR instruction set manual: http://ww1.microchip.com/downloads/en/DeviceDoc/AVR-Instruction-Set-Manual-DS40002198A.pdf
 - ImmersedVR, when I used my Quest
 - The atmega328p datasheet
 
 ## Procedure:
 
-(Note: none of this was written as I did it, everything is recalled from memory)
-
-First I got the display write function working, the job of which was to output the contents of the image buffer to the display. (past tense because I rewrite it later on)
+First I got the display write function working, the job of which was to output the contents of the image buffer to the display.
 
 Then, I tried to get the render function working. Due to a lot of errors and confusion, I rewrote the display write function to be simpler, though that wasn't the problem.
 
@@ -58,7 +55,7 @@ I tried to think of a way to make a basic AI to control the computer paddle, but
 Then I started work on the ball. In the end, just a pair of booleans were used to store the ball's current trajectory. Rather a bit of logic was used to do the physics,  
 though it is pretty simple. Just a bunch of if statements using the current x/y position, and sometimes the player paddle position.
 
-It also has a form of score system, but I can't remember exactly how it works.
+It also has a form of score system, though I can't remember exactly how it works.
 
 With all the necessary features in all their separate functions, I did some fairly simple code for the main loop, which is mostly function calls.
 
@@ -75,6 +72,8 @@ I also gained an understanding of the AVR architecture, which should help in und
 Great for learning AVR ASM, and hugely interesting. Just don't do it looking for a calming activity.
 
 Pong also has some complex logic, especially with the tweaks I used.
+
+It was also found that image rendering can be a royal pain in the backside.
 
 ## References:
 
