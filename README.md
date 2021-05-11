@@ -12,35 +12,35 @@ Some help/pointers from: the wokwi discord, and Julian
 
 You can run this on [Wokwi](https://wokwi.com/arduino/projects/290171034574782984).
 
-## Abstract: 
+## Abstract 
 
 I did this whole thing because of the [AVR: Architecture, Assembly & Reverse Engineering](https://hackaday.io/course/176685-avr-architecture-assembly-reverse-engineering) course on Hackaday.
 
 There was also a fair bit of confusion to be found in sending the rendered image to the display. Pong can also be rather complex, while being simple in other ways.
 
-This (and the course that resulted in it) was rather interesting, and I picked up rather a few helpful tricks. Sometimes ASM is the best way to do something!
+The goal of the course was to learn AVR assembly by implementing Pong in pure assembly
 
-## Introduction: 
+## Introduction 
 
 This report is about the writing of a pong game in C++, and the porting of it to AVR ASM.
 
-## Materials used:
+## Materials Used
 
 Hardware: 
 
-- a laptop
+- a computer that runs the latest version of Google Chrome
 - a mouse
-- an external display, sometimes using an Oculus Quest 2 running ImmersedVR when 3 displays were neccecary
+- a second display is highly reccomended. (I sometimes used an Oculus Quest 2 running ImmersedVR when 3 displays were helpful.)
 
 Software/resources:
 
 - Latest version of Google Chrome
-- Wokwi.com
--  an AVR instruction set manual: http://ww1.microchip.com/downloads/en/DeviceDoc/AVR-Instruction-Set-Manual-DS40002198A.pdf
+- [Wokwi online arduino simulator](https://wokwi.com)
+- an AVR instruction set manual: http://ww1.microchip.com/downloads/en/DeviceDoc/AVR-Instruction-Set-Manual-DS40002198A.pdf
 - ImmersedVR, when I used my Quest
 - The atmega328p datasheet
 
-## Procedure:
+## Procedure
 
 First I got the display write function working, the job of which was to output the contents of the image buffer to the display.
 
@@ -61,13 +61,13 @@ With all the necessary features in all their separate functions, I did some fair
 
 Everything was then converted to AVR ASM, which was a gigantic pain in the backside. And a headache.
 
-## Results:
+## Results
 
 Well, the main results of this were a playable game of pong, and an understanding of ASM.
 
 I also gained an understanding of the AVR architecture, which should help in understanding other architectures as well.
 
-## Conclusion:
+## Conclusion
 
 Great for learning AVR ASM, and hugely interesting. Just don't do it looking for a calming activity.
 
@@ -75,14 +75,10 @@ Pong also has some complex logic, especially with the tweaks I used.
 
 It was also found that image rendering can be a royal pain in the backside.
 
-## References:
+## References
 
-http://ww1.microchip.com/downloads/en/DeviceDoc/AVR-Instruction-Set-Manual-DS40002198A.pdf The instruction set manual
-
-https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf atmega328p datasheet
-
-https://www.wokwi.com wokwi simulator
-
-https://immersed.com/ immersed
-
-https://www.geeksforgeeks.org/operators-c-c/ C++ operator guide
+* http://ww1.microchip.com/downloads/en/DeviceDoc/AVR-Instruction-Set-Manual-DS40002198A.pdf The instruction set manual
+* https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf atmega328p datasheet
+* https://www.wokwi.com wokwi simulator
+* https://immersed.com/ immersed
+* https://www.geeksforgeeks.org/operators-c-c/ C++ operator guide
